@@ -61,8 +61,8 @@ export default function Staking() {
       ids.map((id) => contract.getPositionById(id))
     );
 
-    queriedAssets.map(async (asset) => {
-      const parsedAsset = {
+    const parsedAssets = queriedAssets.map((asset) => {
+      return {
         positionId: asset.positionId,
         percentInterest: Number(asset.percentInterest) / 100,
         daysRemaining: calcDaysRemaining(Number(asset.unlockDate)),
@@ -70,9 +70,9 @@ export default function Staking() {
         etherStaked: toEther(asset.weiStaked),
         open: asset.open,
       };
-
-      setAssets((prev) => [...prev, parsedAsset]);
     });
+
+    setAssets(parsedAssets);
   };
 
   const stakeEther = async (stakingLength) => {
@@ -149,14 +149,14 @@ export default function Staking() {
               <section className={styles.stakingInfo}>
                 <p>
                   Balance:{" "}
-                  {assets.length > 0 &&
-                    assets.map((a, id) => {
-                      if (a.open) {
-                        return <span key={id}>{a.etherStaked}</span>;
-                      } else {
-                        return <span></span>;
-                      }
-                    })}
+                  {assets.length > 0 ? (
+                    assets
+                      .filter(a => a.open)
+                      .reduce((total, a) => total + parseFloat(a.etherStaked), 0)
+                      .toFixed(4)
+                  ) : (
+                    "0.0000"
+                  )} ETH
                 </p>
                 {/* <p>Transaction Cost</p> */}
                 <p>

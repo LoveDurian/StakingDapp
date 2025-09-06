@@ -7,10 +7,16 @@ import { ethers } from "ethers";
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [walletBalance, setWalletBalance] = useState("0");
+  const [isMounted, setIsMounted] = useState(false);
   const { isConnected, address } = useAccount();
   const { connect, connectors } = useConnect();
   const { disconnect } = useDisconnect();
   const { chain } = useNetwork();
+
+  // 确保组件已挂载到客户端
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!isConnected) {
@@ -23,7 +29,8 @@ export default function Header() {
   // 获取钱包余额
   useEffect(() => {
     async function getWalletBalance() {
-      if (window.ethereum && address) {
+      // 确保在客户端且window对象存在
+      if (typeof window !== 'undefined' && window.ethereum && address) {
         try {
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           const balance = await provider.getBalance(address);
@@ -36,10 +43,10 @@ export default function Header() {
       }
     }
 
-    if (isConnected && address) {
+    if (isConnected && address && isMounted) {
       getWalletBalance();
     }
-  }, [isConnected, address]);
+  }, [isConnected, address, isMounted]);
 
   // 格式化地址显示
   const formatAddress = (address) => {
@@ -66,7 +73,7 @@ export default function Header() {
       </section>
 
       <section className={styles.header_info}>
-        {isConnected ? (
+        {isMounted && isConnected ? (
           <>
             <div className={styles.walletInfo}>
               <div className={styles.networkInfo}>
@@ -94,13 +101,13 @@ export default function Header() {
         ) : null}
         
         <section className={styles.header_btn}>
-          {!isLoggedIn ? (
+          {isMounted && !isLoggedIn ? (
             <button className={styles.connect_btn} onClick={disconnect}>
               DISCONNECT WALLET
             </button>
           ) : (
             <>
-              {connectors.map((connector) => (
+              {isMounted && connectors.map((connector) => (
                 <button
                   disable={!connector.ready}
                   key={connector.id}
