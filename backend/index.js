@@ -1,34 +1,23 @@
 import express from "express";
-import Moralis from "moralis";
-import dotenv from "dotenv";
 import cors from "cors";
 
 const app = express();
 const port = 8888;
-dotenv.config();
 
 app.use(cors());
 app.use(express.json());
 
-app.get("/getWalletBalance", async (req, res) => {
-  try {
-    const { query } = req;
-    const response = await Moralis.EvmApi.balance.getNativeBalance({
-      chain: "0xaa36a7",
-      address: query.address,
-    });
-
-    return res.status(200).json(response);
-  } catch (e) {
-    console.log(e);
-    return res.status(400).json;
-  }
+// 健康检查端点
+app.get("/health", (req, res) => {
+  res.status(200).json({ 
+    status: "OK", 
+    message: "Backend server is running",
+    timestamp: new Date().toISOString()
+  });
 });
 
-Moralis.start({
-  apiKey: process.env.MORALIS_KEY,
-}).then(() => {
-  app.listen(port, () => {
-    console.log("Listening for API Calls");
-  });
+// 启动服务器
+app.listen(port, () => {
+  console.log(`Backend server is running on port ${port}`);
+  console.log("Note: Wallet balance is now queried directly from the blockchain");
 });

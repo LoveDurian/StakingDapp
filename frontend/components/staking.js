@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import styles from "../styles/Home.module.css";
 import { useAccount, useContract, useProvider, useSigner } from "wagmi";
 import { ethers } from "ethers";
@@ -11,8 +10,6 @@ export default function Staking() {
   const provider = useProvider();
   const { data: signer } = useSigner();
 
-  const [walletBalance, setWalletBalance] = useState("");
-
   const [stakingTab, setStakingTab] = useState(true);
   const [unstakingTab, setUnstakingTab] = useState(false);
   const [unstakeValue, setUnstakeValue] = useState(0);
@@ -23,22 +20,6 @@ export default function Staking() {
 
   const toWei = (ether) => ethers.utils.parseEther(ether);
   const toEther = (wei) => ethers.utils.formatEther(wei);
-
-  useEffect(() => {
-    async function getWalletBalance() {
-      await axios
-        .get("http://localhost:8888/getwalletbalance", {
-          params: { address },
-        })
-        .then((response) => {
-          setWalletBalance(response.data.balance);
-        });
-    }
-
-    if (isConnected) {
-      getWalletBalance();
-    }
-  }, [isConnected]);
 
   const contract = useContract({
     address: CONTRACT_ADDRESS,
@@ -140,8 +121,7 @@ export default function Staking() {
               />
               <section className={styles.stakingInfo}>
                 <p>
-                  Balance:{" "}
-                  <span>{(walletBalance / 10 ** 18).toLocaleString()}</span>
+                  Balance: Check header for current balance
                 </p>
                 <p>Exchange Rate: 1.03582967</p>
                 {/* <p>Transaction Cost</p> */}
@@ -199,11 +179,11 @@ export default function Staking() {
             <h2>Locked Staking</h2>
             <section className={styles.lockedStaking}>
               <span>Locked 30 days</span>
-              <span className={styles.lockedStakingAPY}>8% API</span>
+              <span className={styles.lockedStakingAPY}>8% APY</span>
               <input
                 className={styles.inputField}
                 type="number"
-                id="inputField"
+                id="inputField30"
                 maxLength="120"
                 placeholder="Enter Amount"
                 required
@@ -211,11 +191,11 @@ export default function Staking() {
             </section>
             <section className={styles.lockedStaking}>
               <span>Locked 60 days</span>
-              <span className={styles.lockedStakingAPY}>9% API</span>
+              <span className={styles.lockedStakingAPY}>9% APY</span>
               <input
                 className={styles.inputField}
                 type="number"
-                id="inputField"
+                id="inputField60"
                 maxLength="120"
                 placeholder="Enter Amount"
                 required
@@ -223,11 +203,11 @@ export default function Staking() {
             </section>
             <section className={styles.lockedStaking}>
               <span>Locked 90 days</span>
-              <span className={styles.lockedStakingAPY}>12% API</span>
+              <span className={styles.lockedStakingAPY}>12% APY</span>
               <input
                 className={styles.inputField}
                 type="number"
-                id="inputField"
+                id="inputField90"
                 maxLength="120"
                 placeholder="Enter Amount"
                 required

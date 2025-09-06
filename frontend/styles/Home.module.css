@@ -1,14 +1,8 @@
 .main {
-  font-family: lft-etica-mono, Luminari , SFMono-Regular, "SF Mono", Menlo,
-    Consolas, "Liberation Mono", monospace;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   min-height: 100vh;
-  background-color: #ffffff;
-  background: rgb(0, 0, 0);
-  background: radial-gradient(
-    circle,
-    rgb(21, 0, 44) 0%,
-    rgb(0, 0, 0) 100%
-  );
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #333;
 }
 
 .header {
@@ -16,19 +10,93 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 3.5rem;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0),
-    rgb(255, 255, 255)
-  );
-  color: rgb(255, 255, 255);
-  padding: 0 5rem;
+  min-height: 3.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: #333;
+  padding: 1rem 5rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .header_logoSection {
   display: flex;
   align-items: center;
+}
+
+.header_info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.walletInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.networkInfo,
+.accountInfo,
+.balanceInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.networkLabel,
+.accountLabel,
+.balanceLabel {
+  font-weight: 600;
+  color: #666;
+  min-width: 60px;
+}
+
+.networkValue {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.accountValue {
+  color: #333;
+  font-weight: 500;
+  font-family: monospace;
+}
+
+.balanceValue {
+  color: #4CAF50;
+  font-weight: 700;
+}
+
+.wrongNetwork {
+  color: #ff6b6b !important;
+}
+
+.warningIcon {
+  margin-left: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.networkWarning {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .header_btn {
@@ -37,9 +105,10 @@
 }
 
 .title {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-left: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
+  color: #333;
 }
 
 .beans {
@@ -49,11 +118,40 @@
 .connectBtn {
   width: 100%;
   height: 100%;
-  background-color: rgb(29, 0, 59);
-  border-radius: 0.3rem;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border-radius: 0.5rem;
   border: none;
   outline: none;
   cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+}
+
+.connectBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.connect_btn {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.connect_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
 }
 
 .stakeBtn {
@@ -61,11 +159,20 @@
   bottom: 20px;
   width: 70%;
   height: 3rem;
-  background-color: rgb(29, 0, 59);
-  border-radius: 0.3rem;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border-radius: 0.5rem;
   border: none;
   outline: none;
   cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.stakeBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
 }
 
 .container {
@@ -73,7 +180,7 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  color: #000000;
+  color: #333;
 }
 
 .stakingContainer {
@@ -96,7 +203,9 @@
   height: 3rem;
   margin: auto;
   border-radius: 2rem;
-  background-color: #eae6ef;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .stakeUnstakeTab > section {
@@ -107,6 +216,9 @@
   height: 100%;
   border-radius: 2rem;
   cursor: pointer;
+  color: #333;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 /* .stakeUnstakeTab > section:hover,
@@ -116,8 +228,10 @@
 } */
 
 .stakingType {
-  background-color: rgb(174, 196, 238);
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
   transition: all 150ms ease-in-out;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
 }
 
 .stakingSection {
@@ -126,77 +240,51 @@
   justify-content: flex-end;
   align-items: center;
   height: 81%;
-  /* background-color: #ffffff2d; */
-  /* padding: 1rem; */
   margin-top: 1rem;
   border-radius: 2rem;
-  /* box-shadow: 0 0 20px #a2a2a25c; */
-  box-shadow: rgba(36, 40, 71, 0.15) 0px 10px 22px,
-    rgba(36, 40, 71, 0.2) 0px 21px 25px;
-  background: linear-gradient(
-      90deg,
-      rgba(243, 243, 243, 0.15) 0%,
-      rgba(243, 243, 243, 0.25) 9.89%,
-      rgba(243, 243, 243, 0.25) 56.97%,
-      rgba(243, 243, 243, 0.15) 101.76%
-    ),
-    rgba(0, 19, 255, 0.03);
-  background-blend-mode: overlay, normal;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .stakingInfoSection {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
   align-items: center;
   height: 93%;
-  /* background-color: #ffffff2d; */
-  /* padding: 1rem; */
   border-radius: 2rem;
-  /* box-shadow: 0 0 20px #a2a2a25c; */
-  box-shadow: rgba(36, 40, 71, 0.15) 0px 10px 22px,
-    rgba(36, 40, 71, 0.2) 0px 21px 25px;
-  background-color: #ffffff;
-  /* background: linear-gradient(
-      90deg,
-      rgba(243, 243, 243, 0.15) 0%,
-      rgba(243, 243, 243, 0.25) 9.89%,
-      rgba(243, 243, 243, 0.25) 56.97%,
-      rgba(243, 243, 243, 0.15) 101.76%
-    ),
-    rgba(0, 19, 255, 0.03); */
-  /* background-blend-mode: overlay, normal; */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.stakingInfoSection .stakeBtn {
+  position: static;
+  width: 80%;
+  height: 3.5rem;
+  margin-top: 1rem;
+  flex-shrink: 0;
 }
 
 .apy {
   font-size: 1.5rem;
   font-weight: 600;
   margin: auto;
-  color: transparent;
-  background: linear-gradient(
-    225deg,
-    rgb(140, 198, 255) 0%,
-    rgb(224, 240, 255) 13.8%,
-    rgb(102, 0, 255) 88.28%
-  );
-  -webkit-background-clip: text;
+  color: #4CAF50;
+  text-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
 }
 
 .lockedStakingAPY {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  /* margin: auto; */
   margin-top: 0.3rem;
   margin-bottom: -0.5rem;
-  color: transparent;
-  background: linear-gradient(
-    225deg,
-    rgb(140, 198, 255) 0%,
-    rgb(224, 240, 255) 13.8%,
-    rgb(102, 0, 255) 88.28%
-  );
-  -webkit-background-clip: text;
+  color: #4CAF50;
 }
 
 .stakingBox {
@@ -206,32 +294,42 @@
   width: 100%;
   height: 92%;
   border-radius: 2rem;
-  background-color: #ffffff;
-  box-shadow: rgba(36, 40, 71, 0.15) 0px 10px 22px,
-    rgba(36, 40, 71, 0.1) 0px 21px 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
 }
 
 .stakingBox > h2 {
   margin-top: 1rem;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .inputField {
   width: 70%;
-  height: 2.3rem;
-  color: #3e2d67;
-  background-color: #eae6ef;
-  font-size: 1rem;
-  margin: 1rem 0;
-  padding-left: 0.5rem;
+  height: 2.2rem;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  padding: 0 1rem;
   border-radius: 1rem;
-  border: none;
+  border: 2px solid rgba(102, 126, 234, 0.2);
   outline: none;
+  transition: all 0.3s ease;
+}
+
+.inputField:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .inputField::placeholder {
   font-size: 1rem;
-  color: #443e38;
+  color: #999;
 }
 
 .inputField::-webkit-inner-spin-button,
@@ -241,24 +339,41 @@
 
 .stakingInfo {
   width: 70%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .stakingInfo > h2 {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
 }
 
 .stakingInfo > p {
   padding: 0.5rem 0;
-  border-bottom: 1px solid rgb(174, 196, 238);
+  border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+  color: #666;
+  font-size: 0.9rem;
 }
 
 .lockedStaking {
   display: flex;
   flex-direction: column;
-  padding: 1rem 0 0;
-  border-bottom: 1px solid rgb(174, 196, 238);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+  color: #333;
 }
+
+.lockedStaking > span:first-child {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
 
 .stakingDataContainer {
   display: flex;
@@ -275,15 +390,22 @@
   width: 15rem;
   height: 8rem;
   border-radius: 1rem;
-  color: #443e38;
-  background-color: #ffffff;
+  color: #333;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   font-size: 1.1rem;
   font-weight: 600;
-  /* padding: 2rem 1rem; */
-  box-shadow: rgba(36, 40, 71, 0.1) 0px 1px 22px,
-    rgba(36, 40, 71, 0.1) 0px 1px 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
 }
+
+.stakingData:hover {
+  transform: translateY(-5px);
+}
+
 .stakingData_value {
-  color: #3e2d67;
+  color: #4CAF50;
   margin-top: 1rem;
+  font-weight: 700;
 }

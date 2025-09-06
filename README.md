@@ -56,9 +56,7 @@ yarn install
 
 Log into [RemixIDE](https://remix.ethereum.org) and deploy the Staking.sol contract. Copy the ABI and contract address and replace the values within frontend/contracts/index.js.
 
-In the backend folder, create a file called .env. Within the .env file, add a MORALIS_KEY variable with the moralis api key you can get from [here](https://admin.moralis.io/login).
-
-i.e. MORALIS_KEY=dwindwdiwndiwniwndiwdinwdinwdidindiwn
+The backend server is now simplified and no longer requires any API keys or external services.
 
 In a seperate terminal window, run the backend node server:
 
