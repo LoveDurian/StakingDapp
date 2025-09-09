@@ -409,3 +409,474 @@
   margin-top: 1rem;
   font-weight: 700;
 }
+
+/* 管理员面板样式 */
+.adminPanel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.adminPanel h2 {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.adminPanel h3 {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 0.5rem;
+}
+
+.contractInfo {
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.infoLabel {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.infoValue {
+  color: #333;
+  font-weight: 500;
+  word-break: break-all;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.emergencyActions {
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  border: 2px solid #ffc107;
+}
+
+.warning {
+  background: rgba(255, 87, 34, 0.1);
+  border: 1px solid #ff5722;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.withdrawSection {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.5rem;
+}
+
+.withdrawSection h4 {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inputGroup .inputField {
+  flex: 1;
+  min-width: 200px;
+}
+
+.withdrawBtn {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.withdrawBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+.withdrawBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.emergencyBtn {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+  width: 100%;
+}
+
+.emergencyBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+}
+
+.emergencyBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.refreshBtn {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+  margin-top: 1rem;
+}
+
+.refreshBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+}
+
+/* 钱包状态组件样式 */
+.walletStatus {
+  margin: 2rem 0;
+}
+
+.walletStatusCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.walletStatusCard h3 {
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.notConnected {
+  color: #666;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.connectButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.connectBtn {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.connectBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.connectBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.walletInfo {
+  margin: 1rem 0;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.infoValue {
+  color: #333;
+  font-weight: 500;
+  font-family: monospace;
+  background: rgba(76, 175, 80, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+}
+
+.correctNetwork {
+  color: #4CAF50 !important;
+}
+
+.wrongNetwork {
+  color: #f44336 !important;
+}
+
+.warningIcon {
+  margin-left: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.networkWarning {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid #ffc107;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.networkWarning p {
+  color: #f57c00;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.switchNetworkBtn {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.switchNetworkBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+.walletActions {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.disconnectBtn {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.disconnectBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+}
+
+/* Position选择相关样式 */
+.positionList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.positionItem {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(76, 175, 80, 0.2);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.positionItem:hover {
+  border-color: rgba(76, 175, 80, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.selectedPosition {
+  border-color: #4CAF50;
+  background: rgba(76, 175, 80, 0.05);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+
+.positionInfo {
+  width: 100%;
+}
+
+.positionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.positionId {
+  font-weight: 700;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.status {
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status.active {
+  background: rgba(33, 150, 243, 0.1);
+  color: #1976d2;
+}
+
+.status.expired {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.positionDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+.detailRow span:first-child {
+  color: #666;
+  font-weight: 500;
+}
+
+.detailRow span:last-child {
+  color: #333;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.totalAmount {
+  color: #4CAF50 !important;
+  font-weight: 700 !important;
+}
+
+.disabledBtn {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #ccc !important;
+}
+
+.disabledBtn:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* 管理员状态样式 */
+.adminStatus {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #4CAF50;
+}
+
+.adminStatus p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.adminStatusTrue {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.adminStatusFalse {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.debugInfo {
+  color: #ff9800;
+  font-size: 0.8rem;
+  font-family: monospace;
+  background: rgba(255, 152, 0, 0.1);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  margin: 0.5rem 0;
+  word-break: break-all;
+}

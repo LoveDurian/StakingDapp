@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = "0x26cacf99d393247565a59e596c211905e9307f7e";
+export const CONTRACT_ADDRESS = "0x930117d4F0e3bd3D4e5c6028c7D3F58Ef797b261";
 export const ABI = [
   {
     inputs: [
@@ -280,6 +280,67 @@ export const ABI = [
         internalType: "uint256",
         name: "",
         type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "emergencyWithdraw",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "emergencyWithdrawAmount",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getContractBalance",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getContractInfo",
+    outputs: [
+      {
+        internalType: "address",
+        name: "contractOwner",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "totalPositions",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "contractBalance",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256[]",
+        name: "availableLockPeriods",
+        type: "uint256[]",
       },
     ],
     stateMutability: "view",

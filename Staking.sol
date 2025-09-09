@@ -84,13 +84,50 @@ contract Staking {
     }
 
     function closePosition(uint positionId) external {
+        require(block.timestamp >= positions[positionId].unlockDate, "Position is not unlocked yet");
         require(positions[positionId].walletAddress == msg.sender, "Only position owner can close position");
         require(positions[positionId].open == true, "Position is already closed");
 
         positions[positionId].open = false;
-
-        uint amount = positions[positionId].weiStaked = positions[positionId].weiInterest;
+        uint amount = positions[positionId].weiStaked + positions[positionId].weiInterest;
 
         payable(msg.sender).call{value: amount}("");
+    }
+
+    // 紧急提现功能 - 只有合约管理员可以调用
+    function emergencyWithdraw() external {
+        require(msg.sender == owner, "Only owner can withdraw");
+        require(address(this).balance > 0, "No funds to withdraw");
+        
+        uint contractBalance = address(this).balance;
+        payable(owner).transfer(contractBalance);
+    }
+
+    // 紧急提现指定金额 - 只有合约管理员可以调用
+    function emergencyWithdrawAmount(uint amount) external {
+        require(msg.sender == owner, "Only owner can withdraw");
+        require(address(this).balance >= amount, "Insufficient contract balance");
+        
+        payable(owner).transfer(amount);
+    }
+
+    // 查看合约余额 - 任何人都可以调用
+    function getContractBalance() external view returns (uint) {
+        return address(this).balance;
+    }
+
+    // 查看合约信息 - 任何人都可以调用
+    function getContractInfo() external view returns (
+        address contractOwner,
+        uint totalPositions,
+        uint contractBalance,   
+        uint[] memory availableLockPeriods
+    ) {
+        return (
+            owner,
+            currentPositionId,
+            address(this).balance,
+            lockPeriods
+        );
     }
 }

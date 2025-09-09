@@ -3,6 +3,7 @@ import styles from "@/styles/Home.module.css";
 
 import Header from "../components/header.js";
 import Main from "../components/main.js";
+import AdminPanel from "../components/adminPanel.js";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <Header />
       <Main />
+      <AdminPanel />
     </section>
   );
 }
